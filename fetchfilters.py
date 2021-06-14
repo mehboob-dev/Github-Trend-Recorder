@@ -16,6 +16,7 @@ def codelangfunc():
         if not clang == "Clear language":
             codelanglist.append(clang)
     print(codelanglist)
+    return codelanglist
 
 def spokenlangfunc():
     spokenlanglist = {}
@@ -27,6 +28,7 @@ def spokenlangfunc():
         if not slangname == "Clear spoken language":
             spokenlanglist[slangname]=slangcode
     print(spokenlanglist)
+    return spokenlanglist
 
 if __name__=="__main__":
     codelangfunc()

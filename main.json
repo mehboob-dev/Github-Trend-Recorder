@@ -1,8 +1,15 @@
 {
-  "url": "https://github.com/trending",
-  "searchparticular": false,
-  "codelang": "python",
-  "spokenlang": "en",
-  "codelanglist": ["c", "python", "java"],
-  "spokenlanglist": ["en"]
+   "url":"https://github.com/trending",
+   "recordall":false,
+   "searchparticular":false,
+   "codelang":"python",
+   "spokenlang":"en",
+   "codelanglist":[
+      "c",
+      "python",
+      "java"
+   ],
+   "spokenlanglist":[
+      "en"
+   ]
 }

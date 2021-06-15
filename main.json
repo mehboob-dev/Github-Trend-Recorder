@@ -7,7 +7,11 @@
    "codelanglist":[
       "c",
       "python",
-      "java"
+      "java",
+      "dart",
+      "html",
+      "go",
+      "r"
    ],
    "spokenlanglist":[
       "en"

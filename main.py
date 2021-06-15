@@ -20,7 +20,7 @@ def fixstringfordb(rawtext):
     return rawtext.replace(",", "")
 
 
-def scrapper(alltrending, url, codelang, spokenlang):
+def scrapper(alltrending, url, codelang, spokenlang, sheetdata, sheet):
     for trend in alltrending:
         try:
             trendtitle = trend.find("p", class_="col-9 color-text-secondary my-1 pr-4").get_text().strip()
@@ -41,18 +41,18 @@ def scrapper(alltrending, url, codelang, spokenlang):
                 timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
                 dbdata = [trendid, timestamp, fixstringfordb(trendtitle), fixstringfordb(trendstar),
                           fixstringfordb(trendforked), codelang, spokenlang, trendlink, url]
-                db.append_row(dbdata)
+                db.append_row(dbdata, sheetdata, sheet)
         except Exception as e:
             print(e)
             continue
 
 
-def param(url, codelang, spokenlang):
+def param(url, codelang, spokenlang, sheetdata, sheet):
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     results = soup.find(id="js-pjax-container")
     alltrending = results.find_all(class_="Box-row")
-    scrapper(alltrending, url, codelang, spokenlang)
+    scrapper(alltrending, url, codelang, spokenlang, sheetdata, sheet)
 
 
 def main():
@@ -64,14 +64,16 @@ def main():
         codelang = config["codelang"]
         spokenlang = config["spokenlang"]
         url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang
-        param(url,  codelang, spokenlang)
+        sheetdata, sheet = db.readsheet()
+        param(url, codelang, spokenlang, sheetdata, sheet)
     else:
         codelanglist = config["codelanglist"]
         spokenlanglist = config["spokenlanglist"]
         for codelang in codelanglist:
             for spokenlang in spokenlanglist:
                 url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang
-                param(url, codelang, spokenlang)
+                sheetdata, sheet = db.readsheet()
+                param(url, codelang, spokenlang, sheetdata, sheet)
 
 
 if __name__ == "__main__":

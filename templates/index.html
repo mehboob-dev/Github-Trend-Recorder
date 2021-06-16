@@ -12,28 +12,22 @@
 <body>
     <div class="bg-white">
         <div class="text-center w-full mx-auto py-6 px-6 sm:px-3 lg:py-8 lg:px-4 z-10">
-            <h2 class="text-6xl"><span class="block">Github Trend Recorder</span> <span
-                    class="block text-indigo-500">Meghani M. Mehboob</span></h2>
+            <h2 class="text-6xl"><span class="block"><a href="/">Github Trend Recorder</a></span> 
+                <span class="block text-indigo-500">
+                    Meghani M. Mehboob
+                </span>
+            </h2>
         </div>
     </div>
     <div class="bg-white grid grid-cols-4 gap-6 m-6">
-        <button type="button"
-            class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">Free
-            space</button> <button type="button"
-            class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">Free
-            space</button> <button type="button"
-            class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">Free
-            space</button> <button type="button"
-            class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">Free
-            space</button> <button type="button"
-            class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">Free
-            space</button> <button type="button"
-            class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">Free
-            space</button> <button type="button"
-            class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">Free
-            space</button> <button type="button"
-            class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">Free
-            space</button>
+        {% for clang in clangs %}
+        <a href="/clang/{{ clang }}"
+            class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">
+            <button type="button">
+                {{ clang }}
+            </button>
+        </a>
+        {% endfor %}
     </div>
     <div>
         <div class="container mx-auto px-4 sm:px-8 max-w-3/5">
@@ -64,42 +58,50 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for data in datas %}
                                 <tr>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div class="flex items-center">
                                             <div class="ml-3">
-                                                <p class="text-gray-900 whitespace-no-wrap text-justify">STM32Cube MCU
-                                                    Full Package for the STM32F4 series - (HAL + LL Drivers CMSIS Core
-                                                    CMSIS Device MW libraries plus a set of Projects running on all
-                                                    boards provided by ST (Nucleo Evaluation and Discovery Kits))</p>
+                                                <p class="text-gray-900 whitespace-no-wrap text-justify">
+                                                    {{ data[3] }}
+                                                </p>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div class="flex items-center">
                                             <div class="ml-3">
-                                                <p class="text-gray-900 whitespace-no-wrap">113365</p>
+                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                    {{ data[4] }}
+                                                </p>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div class="flex items-center">
                                             <div class="ml-3">
-                                                <p class="text-gray-900 whitespace-no-wrap">113365</p>
+                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                    {{ data[5] }}
+                                                </p>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div class="flex items-center">
                                             <div class="ml-3">
-                                                <p class="text-gray-900 whitespace-no-wrap">python</p>
+                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                    {{ data[6] }}
+                                                </p>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div class="flex items-center">
                                             <div class="ml-3">
-                                                <p class="text-gray-900 whitespace-no-wrap">en</p>
+                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                    {{ data[7] }}
+                                                </p>
                                             </div>
                                         </div>
                                     </td>
@@ -107,11 +109,14 @@
                                         <div class="flex items-center">
                                             <div class="ml-3">
                                                 <a class="text-blue-600 font-bold whitespace-no-wrap"
-                                                    href="https://www.github.com/zaproxy/zaproxy">https://www.github.com/CyberPunkMetalHead/backtesting-for-cryptocurrency-trading</a>
+                                                    href="{{ data[8] }}">
+                                                    {{ data[8] }}
+                                                </a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>

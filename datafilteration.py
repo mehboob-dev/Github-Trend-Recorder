@@ -7,16 +7,20 @@ Created on Wed Jun 14 00:18:21 2021
 """
 
 import urbandb_template as db
-import pandas as pd
 
 sheetdf = db.readsheet()[0]
+
+
+def getallclang():
+    return sheetdf["TrendCodeLanguage"].unique().tolist()
+
 
 def getallbycodelang(codelang, sortby):
     resdf = sheetdf.loc[sheetdf["TrendCodeLanguage"] == codelang]
     resdf = resdf.sort_values(by=[sortby], ascending=False, inplace=False)
+    return resdf
 
-getallbycodelang("python","TrendStar")
 
-
-# if __name__ == "__main":
-#     main()
+def getalldata():
+    resdf = sheetdf.sort_values(by=["Timestamp"], ascending=False, inplace=False)
+    return resdf

@@ -7,6 +7,7 @@ Created on Sun Jun 13 14:13:06 2021
 """
 
 import json
+import time
 from datetime import datetime
 
 import emoji as moji
@@ -36,6 +37,7 @@ def scrapper(alltrending, url, codelang, spokenlang, sheetdata, sheet):
                 print("Nos. of Star :", trendstar)
                 print("Nos. of Forked :", trendforked)
                 print("Link :", trendlink)
+                print("CodeLang :", codelang)
                 print("ID :", trendid)
                 print("\n")
                 timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -69,11 +71,17 @@ def main():
     else:
         codelanglist = config["codelanglist"]
         spokenlanglist = config["spokenlanglist"]
+        sheetdata, sheet = db.readsheet()
         for codelang in codelanglist:
             for spokenlang in spokenlanglist:
-                url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang
-                sheetdata, sheet = db.readsheet()
-                param(url, codelang, spokenlang, sheetdata, sheet)
+                try:
+                    url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang
+                    param(url, codelang, spokenlang, sheetdata, sheet)
+                except Exception as e:
+                    print("Unable to Fetch from URL")
+                    print(url)
+                    print(e)
+                    continue
 
 
 if __name__ == "__main__":

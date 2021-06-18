@@ -10,15 +10,24 @@
 </head>
 
 <body>
-    <div class="bg-white">
-        <div class="text-center w-full mx-auto py-6 px-6 sm:px-3 lg:py-8 lg:px-4 z-10">
-            <h2 class="text-6xl"><span class="block"><a href="/">Github Trend Recorder</a></span> 
-                <span class="block text-indigo-500">
+
+    <section class="text-blueGray-700 ">
+        <div class="container flex flex-col items-center px-5 py-4 mx-auto">
+            <div class="flex flex-col w-full text-left lg:text-center">
+                <h1
+                    class="mx-auto text-center text-3xl font-bold leading-none tracking-tighter text-blue-600 lg:w-1/2 sm:text-6xl title-font">
+                    <a href="/">
+                        Github-Trend-Recorder
+                    </a>
+                </h1>
+                <h1
+                    class="mx-auto mt-2 text-center text-center text-2xl font-semibold leading-none tracking-tighter text-green-600 lg:w-1/2 sm:text-6xl title-font">
                     Meghani M. Mehboob
-                </span>
-            </h2>
+                </h1>
+            </div>
         </div>
-    </div>
+    </section>
+
     <div class="bg-white grid lg:grid-cols-4 gap-6 m-6">
         {% for clang in clangs %}
         <a href="/clang/{{ clang }}"
@@ -29,6 +38,7 @@
         </a>
         {% endfor %}
     </div>
+
     <div>
         <div class="container mx-auto px-4 sm:px-8 max-w-3/5">
             <div class="py-8">
@@ -124,6 +134,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

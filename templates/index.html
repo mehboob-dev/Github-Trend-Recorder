@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Trend Recorder</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
 </head>
 
 <body>
@@ -39,7 +40,7 @@
         {% endfor %}
     </div>
 
-    <div>
+    <!-- <div>
         <div class="container mx-auto px-4 sm:px-8 max-w-3/5">
             <div class="py-8">
                 <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -62,6 +63,7 @@
                                     <th scope="col"
                                         class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
                                         Spoken Language</th>
+                                        link</th>
                                     <th scope="col"
                                         class="w-1/6 px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
                                         Link</th>
@@ -133,8 +135,35 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
+
+    <table>
+        <thead>
+          <tr>
+            <th width="300px">TITLE</th>
+            <th>STAR #</th>
+            <th>FORKED #</th>
+            <th>CODE LANGUAGE</th>
+            <th>SPOKEN LANGUAGE</th>
+            <th width="300px">LINK</th>
+          </tr>
+        <thead>
+        <tbody>
+            {% for data in datas %}
+          <tr>
+            <td>{{ data[3] }})</td>
+            <td>{{ data[4] }}</td>
+            <td>{{ data[5] }}</td>
+            <td>{{ data[6] }}</td>
+            <td>{{ data[7] }}</td>
+            <td><a href="{{ data[8] }}">{{ data[8] }}</a></td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      <table/>
+        
+      <blockquote> Responsive Table </blockquote>
 </body>
 
 </html>

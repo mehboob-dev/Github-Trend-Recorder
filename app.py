@@ -14,14 +14,14 @@ app = Flask(__name__)
 @app.route("/")
 def main():
     clangs = fdb.getallclang()
-    datas = fdb.getalldata().head().to_records()
+    datas = fdb.getalldata().head(10).to_records()
     return render_template("index.html", clangs=clangs[0:10], datas=datas)
 
 
 @app.route("/clang/<lang>")
 def clang(lang):
     langs = [lang]
-    datas = fdb.getallbycodelang(lang, "TrendStar").head().to_records()
+    datas = fdb.getallbycodelang(lang, "TrendStar").head(10).to_records()
     return render_template("index.html", clangs=langs, datas=datas)
 
 

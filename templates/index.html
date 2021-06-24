@@ -17,7 +17,7 @@
             <div class="flex flex-col w-full text-left lg:text-center">
                 <h1
                     class="mx-auto text-center text-3xl font-bold leading-none tracking-tighter text-blue-600 lg:w-1/2 sm:text-6xl title-font">
-                    <a href="/">
+                    <a href="/news">
                         Github-Trend-Recorder
                     </a>
                 </h1>
@@ -31,7 +31,7 @@
 
     <div class="bg-white grid lg:grid-cols-4 gap-6 m-6">
         {% for clang in clangs %}
-        <a href="/clang/{{ clang }}"
+        <a href="/news?reqlang={{ clang }}"
             class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2">
             <button type="button">
                 {{ clang }}

@@ -11,7 +11,12 @@
       "dart",
       "html",
       "go",
-      "r"
+      "r",
+      "c++",
+      "javascript",
+      "scala",
+      "swift",
+      "typescript"
    ],
    "spokenlanglist":[
       "en"

@@ -12,23 +12,25 @@ import datafilteration as fdb
 app = Flask(__name__)
 
 clangs = fdb.getallclang()
-datas = fdb.getalldata().head(10).to_records()
+datas = fdb.getUniqueTrending().to_records()
+
 
 @app.route("/")
-def maintemp():
+def template_renderer():
     global clangs, datas
-    return render_template("index.html", clangs=clangs[0:12], datas=datas)
+    return render_template("index.html", clangs=clangs, datas=datas)
+
 
 @app.route("/news")
 def main():
     global clangs, datas
     clangs = fdb.getallclang()
-    if len(request.args)>0:
+    if len(request.args) > 0:
         lang = request.args["reqlang"]
-        datas = fdb.getallbycodelang(lang, "TrendStar").head(10).to_records()
+        datas = fdb.getallbycodelang(lang, "TrendStar").to_records()
     else:
-        datas = fdb.getalldata().head(10).to_records()
-    return redirect(url_for("maintemp"))
+        datas = fdb.getalldata().to_records()
+    return redirect(url_for("template_renderer"))
 
 
 if __name__ == "__main__":

@@ -37,7 +37,7 @@ def main():
         lang = request.args["reqlang"]
         datas = fdb.getallbycodelang(lang, "TrendStar").to_records()
     else:
-        datas = fdb.getalldata().to_records()
+        datas = fdb.getUniqueTrending().to_records()
     return redirect(url_for("template_renderer"))
 
 

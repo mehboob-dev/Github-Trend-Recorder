@@ -6,6 +6,7 @@ Created on Thu Jun 17 01:58:14 2021
 """
 
 from flask import Flask, render_template, request, url_for, redirect
+from datetime import datetime
 
 import datafilteration as fdb
 
@@ -13,8 +14,9 @@ app = Flask(__name__)
 
 clangs = fdb.getallclang()
 datas = fdb.getUniqueTrending().to_records()
+cright = "©" + str(datetime.now().year) + " MM Apps"
 footer = [
-    "© 2021 MM Apps",
+    cright,
     "https://www.facebook.com/www.mmapps.in",
     "https://www.twitter.com/_mm_apps_",
     "https://www.instagram.com/mm.apps",

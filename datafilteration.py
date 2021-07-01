@@ -26,6 +26,7 @@ def getalldata():
     resdf = sheetdf.sort_values(by=["Timestamp"], ascending=False, inplace=False)
     return resdf
 
+
 def getUniqueTrending():
     lang_list = getallclang()
     maindflist = []

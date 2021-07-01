@@ -7,13 +7,12 @@ Created on Sun Jun 13 14:13:06 2021
 """
 
 import json
-import time
 from datetime import datetime
 
 import emoji as moji
 import requests
 from bs4 import BeautifulSoup
-import fetchfilters as fc
+
 import urbandb_template as db
 
 
@@ -74,8 +73,8 @@ def main():
         sheetdata, sheet = db.readsheet()
         for codelang in codelanglist:
             for spokenlang in spokenlanglist:
+                url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang
                 try:
-                    url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang
                     param(url, codelang, spokenlang, sheetdata, sheet)
                 except Exception as e:
                     print("Unable to Fetch from URL")

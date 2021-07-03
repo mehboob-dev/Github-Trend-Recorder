@@ -12,7 +12,6 @@ from datetime import datetime
 import emoji as moji
 import requests
 from bs4 import BeautifulSoup
-
 import urbandb_template as db
 
 

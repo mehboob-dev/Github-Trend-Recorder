@@ -63,7 +63,7 @@ def main():
     if config["searchparticular"]:
         codelang = config["codelang"]
         spokenlang = config["spokenlang"]
-        url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang
+        url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang + "?since=daily"
         sheetdata, sheet = db.readsheet()
         param(url, codelang, spokenlang, sheetdata, sheet)
     else:
@@ -72,7 +72,7 @@ def main():
         sheetdata, sheet = db.readsheet()
         for codelang in codelanglist:
             for spokenlang in spokenlanglist:
-                url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang
+                url = config["url"] + "/" + codelang + "?spoken_language_code=" + spokenlang + "?since=daily"
                 try:
                     param(url, codelang, spokenlang, sheetdata, sheet)
                 except Exception as e:

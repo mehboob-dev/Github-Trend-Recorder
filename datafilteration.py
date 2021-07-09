@@ -18,7 +18,7 @@ def getallclang():
 
 def getallbycodelang(codelang, sortby):
     resdf = sheetdf.loc[sheetdf["TrendCodeLanguage"] == codelang]
-    resdf = resdf.sort_values(by=[sortby], ascending=False, inplace=False)
+    resdf = resdf.sort_values(by=[sortby], ascending=False, inplace=False).head(10)
     return resdf
 
 
